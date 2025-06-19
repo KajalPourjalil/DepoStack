@@ -26,3 +26,11 @@ mongoose.connect(process.env.MONGO_URI, {
     console.error('Error connecting to MongoDB:', err);
 }   
 );
+
+// Import shipment routes
+const shipmentRoutes = require('./routes/shipments');
+app.use('/api/shipments', shipmentRoutes);
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
